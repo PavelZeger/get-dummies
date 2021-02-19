@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration>
+
+    <appender name="CONSOLE_ERROR" class="org.apache.log4j.ConsoleAppender">
+        <param name="threshold" value="warn"/>
+        <param name="target" value="System.err"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%-5r [%d{dd MMM yyyy HH:mm:ss,SSS}] [%-5p] [%t] [%c] - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%-5r [%d{dd MMM yyyy HH:mm:ss,SSS}] [%-5p] [%t] [%c] - %m%n"/>
+        </layout>
+    </appender>
+
+    <category name="org.apache">
+        <priority value="INFO"/>
+    </category>
+
+    <category name="com.undertone">
+        <priority value="INFO"/>
+    </category>
+
+    <root>
+        <level value="WARN"/>
+        <appender-ref ref="CONSOLE_ERROR"/>
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</log4j:configuration>
